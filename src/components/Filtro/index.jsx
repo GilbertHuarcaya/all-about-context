@@ -34,22 +34,34 @@ function Filtros() {
 
   return (
     <div className="Filtros">
-      <span htmlFor="porcentaje">Ver %</span>
-      <input name="tipo" type="radio" onChange={toPercentage} />
-      <span htmlFor="numero">Ver #</span>
-      <input name="tipo" type="radio" onChange={toNumber} defaultChecked />
+      <label htmlFor="porcentaje">
+        <span> Ver en Porcentajes</span>
+        <input name="tipo" type="radio" onChange={toPercentage} />
+      </label>
+
+      <label htmlFor="numero">
+        <span> Ver en Números</span>
+
+        <input name="tipo" type="radio" onChange={toNumber} defaultChecked />
+      </label>
+
       {votos.map((e, index) => (
         <div key={`votoC${index + 1}`}>
-          <span htmlFor={`candidato${index + 1}`}>
-            Ver votos del Candidato
-            {' '}
-            {index + 1}
-          </span>
-          <input name={`candidato${index + 1}`} type="checkbox" onChange={toggleshowOne} value={index} checked={!e.hidden} />
+          <label htmlFor={`candidato${index + 1}`}>
+            <span>
+              Ver votos del Candidato
+              {index + 1}
+            </span>
+
+            <input name={`candidato${index + 1}`} type="checkbox" onChange={toggleshowOne} value={index} checked={!e.hidden} />
+          </label>
         </div>
       ))}
-      <span htmlFor="todos">Ver votos de todos los Candidatos</span>
-      <input name="todos" type="checkbox" onChange={toggleshowAll} checked={validate} />
+      <label htmlFor="todos">
+        <span>Ver todos</span>
+        <input name="todos" type="checkbox" onChange={toggleshowAll} checked={validate} />
+      </label>
+
     </div>
   );
 }

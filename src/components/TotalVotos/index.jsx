@@ -11,8 +11,8 @@ function TotalVotos() {
 
   return (
     <div className="TotalVotos">
-      <h2>Total de votos</h2>
-      {total}
+      <h2 className="subtitle">Total de votos</h2>
+      <span>{total}</span>
     </div>
   );
 }
