@@ -10,8 +10,8 @@ function Candidato4() {
     getVotesFromLocalStorage(dispatch);
   };
   return (
-    <div className="Candidato4">
-      <button type="button" className="c4" onClick={handleClick}>Vota por el Candidato4</button>
+    <div className="candidate">
+      <button type="button" className="button-inline" onClick={handleClick}>Vota por el Candidato4</button>
     </div>
   );
 }

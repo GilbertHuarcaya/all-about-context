@@ -11,8 +11,8 @@ function Candidato3() {
   };
 
   return (
-    <div className="Candidato3">
-      <button type="button" className="c3" onClick={handleClick}>Vota por el Candidato3</button>
+    <div className="candidate">
+      <button type="button" className="button-inline" onClick={handleClick}>Vota por el Candidato3</button>
     </div>
   );
 }
