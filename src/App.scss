@@ -1,38 +1,243 @@
+@use "sass:list";
+@import "./variables.scss";
+$bgs: $Pattens-Blue, $Pretty-red, $Purple-Ice, $White-Ice;
+
+@for $i from 1 through 4 {
+  .candidate:nth-child(4n + #{$i}) {
+    .button-inline {
+      background-color: list.nth($bgs, $i);
+      padding: 0.5em 0.3em;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 2px 2px 7px 3px rgba(167, 167, 167, 0.925);
+      cursor: pointer;
+      font-size: $mobile-font;
+    }
+  }
+}
+
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  padding: 1em;
+  border: 5px solid $Purple-Ice;
+  gap: 1em;
+  max-width: 50em;
+  background-color: $bg-color;
+  border-radius: 8px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.candidate {
+  height: 2em;
+  padding: 1em 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.TotalVotos {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  border: 5px solid $Purple-Ice;
+  padding: 1em;
+  border-radius: 8px;
+  span {
+    color: $secondary-orange;
+    font-size: 3em;
+  }
+}
+.subtitle {
+  color: $primary-purple;
+  font-size: 1em;
+  margin: 0;
+}
+.VotosInd {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  border: 5px solid $Purple-Ice;
+  padding: 0.5em;
+  border-radius: 8px;
+  display: inline-block;
+  h3 {
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+  }
+  span {
+    font-size: 2em;
+  }
+  @for $i from 1 through 4 {
+    .voto:nth-child(4n + #{$i}) {
+      background-color: list.nth($bgs, $i);
+      padding: 0.3em 0;
+      font-size: $mobile-font;
+      min-width: 15em;
+      margin: 0 auto 5px;
+    }
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Filtros {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  label {
+    font-size: $mobile-font;
+    font-weight: bold;
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    border: 5px solid $Purple-Ice;
+    margin-bottom: 5px;
   }
-  to {
-    transform: rotate(360deg);
+  input {
+    display: inline-block;
+    width: 60%;
+    height: 20px;
+  }
+}
+
+.restart {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 4;
+  padding: 0.5em 0.3em;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 2px 2px 7px 3px rgba(167, 167, 167, 0.925);
+  cursor: pointer;
+  font-size: $mobile-font;
+}
+
+@media (min-width: 769px) {
+  @for $i from 1 through 4 {
+    .candidate:nth-child(4n + #{$i}) {
+      .button-inline {
+        background-color: list.nth($bgs, $i);
+        padding: 0.5em 0.3em;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 2px 2px 7px 3px rgba(167, 167, 167, 0.925);
+        cursor: pointer;
+        font-size: 0.8em;
+      }
+      .button-inline:hover {
+        box-shadow: 2px 2px 7px 6px rgba(167, 167, 167, 0.925),
+          rgba(167, 167, 167, 0.925);
+        font-size: 0.9em;
+      }
+      .button-inline:active {
+        background: linear-gradient(
+            rgba(17, 17, 17, 0.13),
+            rgba(17, 17, 17, 0.103)
+          ),
+          list.nth($bgs, $i);
+        font-size: 0.95em;
+      }
+    }
+  }
+  .App {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 1em;
+    border: 5px solid $Purple-Ice;
+    gap: 1em;
+    max-width: 50em;
+    background-color: $bg-color;
+    border-radius: 8px;
+  }
+  .candidate {
+    height: 2em;
+    padding: 1em 0;
+  }
+  .TotalVotos {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border: 5px solid $Purple-Ice;
+    padding: 1em;
+    border-radius: 8px;
+    span {
+      color: $secondary-orange;
+      font-size: 4em;
+    }
+  }
+  .subtitle {
+    color: $primary-purple;
+    font-size: 2em;
+    margin: 0;
+  }
+  .VotosInd {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border: 5px solid $Purple-Ice;
+    padding: 0.5em;
+    border-radius: 8px;
+    display: inline-block;
+    h3 {
+      width: 50%;
+      display: inline-block;
+      text-align: left;
+    }
+    span {
+      font-size: 2em;
+    }
+    @for $i from 1 through 4 {
+      .voto:nth-child(4n + #{$i}) {
+        background-color: list.nth($bgs, $i);
+        padding: 0.3em 0;
+        font-size: $desktop-font;
+        min-width: 15em;
+        margin: 0 auto 5px;
+      }
+    }
+  }
+
+  .Filtros {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    label {
+      font-size: $desktop-font;
+      font-weight: bold;
+      display: inline-block;
+      height: auto;
+      width: 100%;
+      border: 5px solid $Purple-Ice;
+      margin-bottom: 5px;
+    }
+    span {
+      display: inline-block;
+      width: 60%;
+    }
+    input {
+      display: inline-block;
+      width: 20%;
+      height: 30px;
+    }
+  }
+
+  .restart {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    background-color: lightcoral;
+    color: $Ghost-White;
+    padding: 0.5em 0.3em;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 2px 2px 7px 3px rgba(167, 167, 167, 0.925);
+    cursor: pointer;
+    font-size: $desktop-font;
   }
 }
