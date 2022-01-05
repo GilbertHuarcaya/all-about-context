@@ -1,0 +1,9 @@
+export const SUMAR_VOTO_C1 = '@context/sumar-voto-c1';
+export const SUMAR_VOTO_C2 = '@context/sumar-voto-c2';
+export const SUMAR_VOTO_C3 = '@context/sumar-voto-c3';
+export const SUMAR_VOTO_C4 = '@context/sumar-voto-c4';
+export const PORCENTAJE = '@context/porcentaje';
+export const NUMERO = '@context/numero';
+export const MOSTRAR_1 = '@context/mostrar1';
+export const MOSTRAR_TODOS = '@context/mostrar-todos';
+export const GET_VOTES_FROM_LOCALSTORAGE = '@context/get-votes-from-localstorage';
